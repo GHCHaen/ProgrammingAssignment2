@@ -15,7 +15,7 @@
 ## > myCacheMatrix <- makeCacheMatrix(matrix(rnorm(9), nrow=3, ncol=3))
 ## Assign a new value to an existing caching matrix
 ## > myCacheMatrix$set(matrix(rnorm(100), nrow=10, ncol=10))
-## Retrieve the matrix stored within a caching matrix
+## Retrieve the matrix data stored within the caching matrix object
 ## > myCacheMatrix$get()
 ## Get the result of the solve function, returning the cached value if it exists
 ## > cacheSolve(myCacheMatrix)
@@ -30,10 +30,10 @@
 ## Output:
 ##   A list of pointers to the cached matrix functions.
 ## Functions:
-##   get() - Returns the stored matrix.
-##   set(x) - Replaces the stored matrix with the matrix 'x' provided.
+##   get()       - Returns the stored matrix.
+##   set(x)      - Replaces the stored matrix with the matrix 'x' provided.
 ##   setsolve(x) - Stores the result of solve on the matrix (used by cacheSolve)
-##   getsolve() - Returns the cached result of solve
+##   getsolve()  - Returns the cached result of solve
 
 makeCacheMatrix <- function(storedMatrix = matrix())
 {
@@ -78,8 +78,9 @@ makeCacheMatrix <- function(storedMatrix = matrix())
 ##   This function will return the cached value of Solve if it already exists,
 ##   otherwise compute the value and store it in the cache before returning.
 ## Input:
-##   x - A cached matrix result from calling makeCacheMatrix.
-##   ... - Additional parameters intended to be passed to the Solve function.
+##   x (required)   - A cached matrix result from calling makeCacheMatrix.
+##   ... (optional) - Additional parameters intended to be passed to the Solve
+##                    function.
 ## Output:
 ##   The result of the solve function.
 
